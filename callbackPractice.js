@@ -2,6 +2,7 @@
 Below is a sample problem 
 
   //code here for sayHi
+  
 
    sayHi('Hi Katie', function(thingToSay){
       alert(thingToSay);
@@ -25,7 +26,9 @@ and what you should write is the favNum function that makes the code above work,
 
 
   //Code Here for first
-  
+  function first(nameArr, cb) {
+    cb(nameArr[0])
+  }
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
   console.log('The first name in names is ', firstName)
@@ -39,6 +42,9 @@ first(names, function(firstName){
 
 
   //Code Here for last
+  function last(nameArr, cb) {
+    cb(nameArr[nameArr.length-1])
+  }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -58,6 +64,10 @@ last(names, function(lastName){
 
   //Code Here for multiply
 
+function multiply(num, byNum, cb){
+  cb(num*byNum)
+}
+
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
 })
@@ -73,8 +83,21 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+  
+  
+  function contains (arr, inArray, cb) {
+    for (var i = 0; i<arr.length; i++){
+      if (arr[i] === inArray){
+        result = true;
+        
+      }
+    };
+    cb(result)
+  }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+
+
 contains(names, 'Colt', function(result){
   if(result === true){
     console.log('Colt is in the array');
@@ -93,6 +116,19 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
+    
+    function uniq (arr, cb) {
+      var newArr = [];
+      for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr.length; j++) {
+          if (arr[i] === arr[j] && i !== j) {
+            delete arr[i];
+            delete arr[j];
+          }
+        }
+      }
+      cb(arr);
+    }
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -106,6 +142,17 @@ uniq(names, function(uniqArr){
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
+function each (arr, cb) {
+  var indicearr = [];
+  
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length; j++) {
+      indicearr.push(arr[i]+arr[j]);
+    }
+  }
+  
+  
+}
 
 
     //Code Here for each
