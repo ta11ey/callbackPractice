@@ -173,6 +173,14 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
+ 
+ function getUserById (objArr, userId, cb) {
+   for (var i = 0; i <objArr.length; i ++) {
+     if (userId === users[i].id){
+       cb(users[i])
+   }
+   
+ }
 
 var users = [
   {
